@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Little Plants — Tanaman Pas, Hidup Lebih Asri</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="toast" class="toast"></div>
+
+  <header class="site-header">
+    <a class="brand" href="#" data-page="home" aria-label="Little Plants">
+      <img class="brand-logo" src="assets/logo.png" alt="Little Plants">
+    </a>
+
+    <nav class="main-nav">
+      <a href="#" data-page="home" class="nav-link active">Beranda</a>
+      <a href="#" data-page="category" class="nav-link">Kategori</a>
+      <a href="#" data-page="articles" class="nav-link">Artikel</a>
+      <a href="#" data-page="about" class="nav-link">Tentang Kami</a>
+    </nav>
+
+    <div class="header-actions">
+      <div class="search-mini">
+        <span>⌕</span><input id="headerSearch" placeholder="Cari tanaman berdasarkan kebutuhan...">
+      </div>
+      <button class="icon-btn" id="headerSearchBtn" title="Cari">⌕</button>
+      <button class="icon-btn" id="wishlistBtn" title="Wishlist">♡<span class="badge" id="wishCount">0</span></button>
+      <button class="icon-btn" id="accountBtn" title="Akun">♙</button>
+      <button class="login-btn" id="loginBtn">Masuk / Daftar</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="homePage" class="page active">
+      <div class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">LITTLE PLANTS</p>
+          <h1>Tanaman yang tepat,<br>untuk hidup yang lebih baik</h1>
+          <p>Cari tanaman sesuai kebutuhan, gaya hidup, dan kondisi rumahmu.</p>
+          <div class="big-search">
+            <span>⌕</span><input id="homeSearch" placeholder="Cari tanaman berdasarkan kebutuhan...">
+            <button id="homeSearchBtn">⌕</button>
+          </div>
+          <div class="popular">
+            <span>Populer:</span>
+            <button data-filter="Indoor">Indoor</button><button data-filter="Easy Care">Easy Care</button>
+            <button data-filter="Low Light">Low Light</button><button data-filter="Pet-Friendly">Pet-Friendly</button>
+            <button data-filter="Outdoor">Outdoor</button>
+          </div>
+        </div>
+        <div class="hero-photo"><img src="assets/hero.jpg" alt="Tanaman di ruang keluarga"></div>
+      </div>
+
+      <div class="benefits">
+        <div>🚚 <span><b>Pengiriman Cepat</b><small>& Aman</small></span></div>
+        <div>🛡️ <span><b>Tanaman Berkualitas</b><small>Terkurasi</small></span></div>
+        <div>🌿 <span><b>Tips & Komunitas</b><small>Pecinta Tanaman</small></span></div>
+        <div>♙ <span><b>Konsultasi Ahli</b><small>Tanaman</small></span></div>
+      </div>
+
+      <div class="section-head"><div><h2>Kategori Tanaman</h2><p>Pilih kategori yang sesuai dengan kebutuhanmu.</p></div><button id="seeAllCategories">Lihat Semua →</button></div>
+      <div class="category-grid">
+        <button class="category-card" data-filter="Indoor"><img src="assets/cat-indoor.jpg"><span>⌂ &nbsp; Indoor</span></button>
+        <button class="category-card" data-filter="Outdoor"><img src="assets/cat-outdoor.jpg"><span>☼ &nbsp; Outdoor</span></button>
+        <button class="category-card" data-filter="Easy Care"><img src="assets/cat-easy.jpg"><span>◒ &nbsp; Easy Care</span></button>
+        <button class="category-card" data-filter="Low Light"><img src="assets/cat-low.jpg"><span>☾ &nbsp; Low Light</span></button>
+        <button class="category-card" data-filter="Pet-Friendly"><img src="assets/cat-pet.jpg"><span>❀ &nbsp; Pet-Friendly</span></button>
+      </div>
+
+      <div class="recommendation" id="recommendation">
+        <span class="leaf">🌿</span><div><b>Tanaman sehat, rumah lebih hidup</b><small>Dapatkan rekomendasi tanaman terbaik sesuai dengan gaya hidup dan kebutuhanmu.</small></div>
+        <button data-page="category">→</button>
+      </div>
+    </section>
+
+    <section id="categoryPage" class="page">
+      <div class="crumb">Beranda　›　Kategori　›　 <span id="categoryCrumb">Indoor</span></div>
+      <div class="category-top">
+        <div><h1>Kategori Tanaman</h1><p>Temukan tanaman terbaik untuk ruang dalam rumahmu.</p></div>
+        <div class="mini-banner"><b>Kategori Tanaman</b><small>Temukan tanaman terbaik untuk ruang dalam rumahmu.</small></div>
+      </div>
+      <div class="category-layout">
+        <aside class="filters">
+          <div class="filter-title"><b>Filter</b><button id="resetFilters">Reset</button></div>
+          <label>Ukuran</label>
+          <label><input type="checkbox" value="Kecil" class="filter-size"> Kecil</label>
+          <label><input type="checkbox" value="Sedang" class="filter-size"> Sedang</label>
+          <label><input type="checkbox" value="Besar" class="filter-size"> Besar</label>
+          <label>Harga</label>
+          <div class="price-row"><span>Rp0</span><span>Rp1.000.000+</span></div>
+          <input type="range" id="priceRange" min="0" max="1000000" step="25000" value="1000000">
+          <label>Kebutuhan Cahaya</label>
+          <label><input type="checkbox" value="Rendah" class="filter-light"> Cahaya Rendah</label>
+          <label><input type="checkbox" value="Sedang" class="filter-light"> Cahaya Sedang</label>
+          <label><input type="checkbox" value="Tinggi" class="filter-light"> Cahaya Tinggi</label>
+          <label>Perawatan</label>
+          <label><input type="checkbox" value="Mudah" class="filter-care"> Mudah</label>
+          <label><input type="checkbox" value="Sedang" class="filter-care"> Sedang</label>
+          <label><input type="checkbox" value="Sulit" class="filter-care"> Sulit</label>
+          <label>Pet-Friendly</label>
+          <label><input type="checkbox" value="Ya" class="filter-pet"> Ya</label>
+          <label><input type="checkbox" value="Tidak" class="filter-pet"> Tidak</label>
+          <button class="apply-filter" id="applyFilter">Terapkan Filter</button>
+        </aside>
+        <div class="products-area">
+          <div class="chip-row">
+            <button class="chip active" data-filter="Indoor">◉ Indoor</button><button class="chip" data-filter="Outdoor">☼ Outdoor</button>
+            <button class="chip" data-filter="Easy Care">◒ Easy Care</button><button class="chip" data-filter="Low Light">☾ Low Light</button>
+            <button class="chip" data-filter="Pet-Friendly">❀ Pet-Friendly</button>
+            <select id="sortSelect"><option value="new">Urutkan: Terbaru</option><option value="low">Harga Terendah</option><option value="high">Harga Tertinggi</option><option value="name">Nama A-Z</option></select>
+          </div>
+          <div id="activeFilters" class="active-filters"></div>
+          <div id="productGrid" class="product-grid"></div>
+          <div class="pagination" id="pagination"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="detailPage" class="page">
+      <div class="crumb">Beranda　›　Kategori　›　Indoor　›　 <span>Monstera Deliciosa</span></div>
+      <div class="detail-layout">
+        <div class="gallery"><div class="thumbs" id="thumbs"></div><div class="main-product-image"><img id="detailImage" src="assets/detail.jpg"></div></div>
+        <div class="detail-main">
+          <h1 id="detailName">Monstera Deliciosa</h1><p class="detail-desc">Tanaman hias indoor yang populer dengan daun berlubang yang unik dan estetik.</p>
+          <div class="rating">★ 4.8 <span>(120 ulasan)</span> <b>Pet-Friendly</b></div>
+          <div class="detail-price" id="detailPrice">Rp 85.000</div><small class="stock">● Stok Tersedia</small>
+          <div class="quantity"><button id="minus">−</button><span id="qty">1</span><button id="plus">+</button><button class="add-cart" id="addCart">Tambah ke Keranjang</button></div>
+          <button class="wishlist-wide" id="detailWish">♡ Simpan ke Wishlist</button>
+          <div class="quick-info">
+            <div>☼ <b>Cahaya</b><small>Cahaya terang tidak langsung</small></div>
+            <div>💧 <b>Penyiraman</b><small>2–3x seminggu</small></div>
+            <div>⌂ <b>Indoor / Outdoor</b><small>Lebih cocok indoor</small></div>
+            <div>❀ <b>Aman untuk Hewan</b><small>Aman untuk kucing dan anjing</small></div>
+          </div>
+          <div class="tabs"><button class="active">Deskripsi</button><button>Cara Merawat</button><button>Kelebihan</button><button>Ulasan</button></div>
+          <article><h3>Tentang Monstera Deliciosa</h3><p>Monstera Deliciosa adalah tanaman hias tropis yang terkenal dengan daun berlubang khasnya. Tanaman ini cocok diletakkan di dalam ruangan dengan cahaya tidak langsung.</p></article>
+        </div>
+        <aside class="care-card"><h3>Ringkasan Perawatan</h3><p>☼ <b>Cahaya</b><br><span>Cahaya terang tidak langsung</span></p><p>💧 <b>Penyiraman</b><br><span>2–3x seminggu</span></p><p>⌂ <b>Ukuran</b><br><span>Dapat tumbuh hingga 1–2 meter</span></p><p>❀ <b>Tingkat Kesulitan</b><br><span>Mudah, cocok untuk pemula.</span></p><hr><h3>Info Ahli</h3><p><b>Nama ilmiah</b><br><span>Monstera deliciosa</span></p><p><b>Famili</b><br><span>Araceae</span></p></aside>
+      </div>
+    </section>
+
+    <section id="articlesPage" class="page simple-page"><div class="simple-hero"><h1>Artikel & Tips Tanaman</h1><p>Temukan tips sederhana agar tanamanmu tetap sehat.</p></div><div class="article-grid"><article><img src="assets/hero.jpg"><h3>5 Tanaman untuk Pemula</h3><p>Pilih tanaman yang mudah dirawat untuk memulai koleksi.</p><button class="outline-btn" onclick="showToast('Artikel dibuka')">Baca Artikel</button></article><article><img src="assets/cat-low.jpg"><h3>Tanaman untuk Rumah Minim Cahaya</h3><p>Rekomendasi tanaman yang tetap cantik di ruangan teduh.</p><button class="outline-btn" onclick="showToast('Artikel dibuka')">Baca Artikel</button></article><article><img src="assets/cat-pet.jpg"><h3>Tanaman Aman untuk Hewan</h3><p>Kenali tanaman yang ramah untuk kucing dan anjing.</p><button class="outline-btn" onclick="showToast('Artikel dibuka')">Baca Artikel</button></article></div></section>
+
+    <section id="aboutPage" class="page simple-page"><div class="about-box"><span class="big-leaf">🌿</span><h1>Tentang Little Plants</h1><p>Little Plants membantu kamu menemukan tanaman yang sesuai dengan ruang, gaya hidup, kebutuhan cahaya, tingkat perawatan, dan kondisi hewan peliharaan di rumah.</p><div class="about-stats"><div><b>50+</b><span>Tanaman</span></div><div><b>4.9/5</b><span>Rating</span></div><div><b>24/7</b><span>Tips</span></div></div></div></section>
+  </main>
+
+  <div class="modal" id="filterModal">
+    <div class="modal-card"><button class="close" data-close>×</button><h2>Filter Tanaman <button id="modalReset">Reset</button></h2><div class="modal-columns"><div><h4>Tingkat Cahaya</h4><label><input type="checkbox" class="m-light" value="Rendah"> Cahaya Rendah</label><label><input type="checkbox" class="m-light" value="Sedang"> Cahaya Sedang</label><label><input type="checkbox" class="m-light" value="Tinggi"> Cahaya Tinggi</label><h4>Frekuensi Siram</h4><label><input type="checkbox"> Setiap hari</label><label><input type="checkbox"> 2–3x seminggu</label><label><input type="checkbox"> 1x seminggu</label><h4>Ukuran</h4><label><input type="checkbox"> Kecil (≤30 cm)</label><label><input type="checkbox"> Sedang (31–100 cm)</label></div><div><h4>Tingkat Kesulitan</h4><label><input type="checkbox"> Mudah</label><label><input type="checkbox"> Sedang</label><label><input type="checkbox"> Sulit</label><h4>Keamanan Hewan</h4><label><input type="checkbox"> Aman untuk kucing</label><label><input type="checkbox"> Tidak aman untuk kucing</label><label><input type="checkbox"> Aman untuk anjing</label></div></div><div class="modal-actions"><button class="reset-btn" id="modalReset2">Reset Filter</button><button class="apply-filter" id="modalApply">Terapkan Filter</button></div></div>
+  </div>
+
+  <div class="modal" id="loginModal"><div class="modal-card login-card"><button class="close" data-close>×</button><h2>Masuk ke Little Plants</h2><p>Gunakan akunmu untuk menyimpan wishlist dan keranjang.</p><input placeholder="Email"><input type="password" placeholder="Password"><button class="apply-filter" id="doLogin">Masuk</button><button class="text-btn" id="registerBtn">Belum punya akun? Daftar</button></div></div>
+
+  <div class="modal" id="cartModal"><div class="modal-card"><button class="close" data-close>×</button><h2>Keranjang Belanja</h2><div id="cartItems"></div><div class="cart-total"><b>Total</b><b id="cartTotal">Rp 0</b></div><button class="apply-filter" id="checkout">Checkout</button></div></div>
+
+  <footer><div class="footer-brand"><img src="assets/logo.png" alt="Little Plants"></div><div><a data-page="home">Beranda</a><a data-page="category">Kategori</a><a data-page="articles">Artikel</a><a data-page="about">Tentang Kami</a></div><span>© 2025 Little Plants. All rights reserved.</span></footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
